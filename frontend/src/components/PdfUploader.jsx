@@ -23,7 +23,7 @@ export default function PdfUploader({ onUploadComplete }) {
         const formData = new FormData();
         formData.append('file', file);
         try {
-            const res = await fetch('http://localhost:8000/api/upload-pdf', { method: 'POST', body: formData });
+            const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/api/upload-pdf`, { method: 'POST', body: formData });
             if (!res.ok) throw new Error('Failed to parse PDF.');
             onUploadComplete(await res.json(), file.name);
         } catch (err) {

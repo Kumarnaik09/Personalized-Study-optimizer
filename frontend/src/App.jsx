@@ -51,7 +51,7 @@ function StudyFlow() {
     setWrongTopics(prev => [...prev, q.question.split(' ').slice(0, 5).join(' ')]);
     setRemedialData(null); setPendingIndex(qIndex); setScreen('remedial');
     try {
-      const res = await fetch('http://localhost:8000/api/generate-remedial', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'https://personalized-study-optimizer-backend.onrender.com'}/api/generate-remedial`, {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question_text: q.question, wrong_answer: q.options[wrongIndex] }),
       });
