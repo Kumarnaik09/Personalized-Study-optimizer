@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect, createContext, useContext } from 'react';
 
-const API = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const API = import.meta.env.VITE_API_URL || 'hhttps://personalized-study-optimizer-backend.onrender.com';
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
